@@ -1,0 +1,6 @@
+query Trainer($name: String!) {
+    Trainer(name: $name) {
+        id
+        name
+    }
+}
