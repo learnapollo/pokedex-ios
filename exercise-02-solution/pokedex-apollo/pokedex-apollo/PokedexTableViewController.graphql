@@ -1,0 +1,6 @@
+query Trainer {
+    Trainer(name: "__NAME__") {
+        id
+        name
+    }
+}
