@@ -5,7 +5,7 @@ import Apollo
 public final class TrainerQuery: GraphQLQuery {
   public static let operationDefinition =
     "query Trainer {" +
-    "  Trainer(name: \"__NAME__\") {" +
+    "  Trainer(name: \"Nikolas\") {" +
     "    id" +
     "    name" +
     "  }" +

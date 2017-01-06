@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Pokedex-->
         <scene sceneID="gcR-qS-rKk">
             <objects>
                 <tableViewController id="MXm-Rc-bS0" customClass="PokedexTableViewController" customModule="pokedex_apollo" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,11 +19,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GreetingCell" rowHeight="69" id="8Mc-9a-BVH">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GreetingCell" rowHeight="69" id="8Mc-9a-BVH" customClass="GreetingCell" customModule="pokedex_apollo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="69"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8Mc-9a-BVH" id="emv-rR-wov">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="68.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, you have 0 Pokemon in your Pokedex!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5D9-9C-0yl">
@@ -39,6 +39,9 @@
                                         <constraint firstItem="5D9-9C-0yl" firstAttribute="centerY" secondItem="emv-rR-wov" secondAttribute="centerY" id="qxI-GB-dT8"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="greetingLabel" destination="5D9-9C-0yl" id="oxF-w1-CeY"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -46,11 +49,11 @@
                             <outlet property="delegate" destination="MXm-Rc-bS0" id="rZ8-bq-Wwx"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="v3B-5k-6ks"/>
+                    <navigationItem key="navigationItem" title="Pokedex" id="v3B-5k-6ks"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DuR-5f-XN8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="928.79999999999995" y="236.13193403298354"/>
+            <point key="canvasLocation" x="1058" y="174"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8eP-tM-6Rx">
