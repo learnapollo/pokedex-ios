@@ -1,0 +1,11 @@
+query Trainer($name: String!) {
+    Trainer(name: $name) {
+        id
+        name
+        ownedPokemons {
+            id
+            name
+            url
+        }
+    }
+}
