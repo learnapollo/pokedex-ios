@@ -35,7 +35,7 @@ class PokedexTableViewController: UITableViewController {
     // MARK: Data fetching
     
     func fetchTrainer() {
-        let trainerQuery = TrainerQuery(name: "__NAME__")
+        let trainerQuery = TrainerQuery()
         apollo.fetch(query: trainerQuery) { (result: GraphQLResult?, error: Error?) in
             if let error = error {
                 print(#function, "ERROR | An error occured: \(error)")

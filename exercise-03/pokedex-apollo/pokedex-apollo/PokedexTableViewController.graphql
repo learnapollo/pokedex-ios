@@ -1,5 +1,5 @@
-query Trainer($name: String!) {
-    Trainer(name: $name) {
+query Trainer {
+    Trainer(name: "__NAME__") {
         id
         name
     }

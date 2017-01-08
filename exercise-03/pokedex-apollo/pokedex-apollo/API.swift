@@ -4,22 +4,12 @@ import Apollo
 
 public final class TrainerQuery: GraphQLQuery {
   public static let operationDefinition =
-    "query Trainer($name: String!) {" +
-    "  Trainer(name: $name) {" +
+    "query Trainer {" +
+    "  Trainer(name: \"__NAME__\") {" +
     "    id" +
     "    name" +
     "  }" +
     "}"
-
-  public let name: String
-
-  public init(name: String) {
-    self.name = name
-  }
-
-  public var variables: GraphQLMap? {
-    return ["name": name]
-  }
 
   public struct Data: GraphQLMapDecodable {
     public let trainer: Trainer?
