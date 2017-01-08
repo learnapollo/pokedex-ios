@@ -28,7 +28,7 @@ class PokedexTableViewController: UITableViewController {
     
     var ownedPokemons: [TrainerQuery.Data.Trainer.OwnedPokemon]? = [] {
         didSet {
-            tableView.reloadSections([Sections.pokemons.rawValue], with: .none)
+            tableView.reloadData()
         }
     }
     
