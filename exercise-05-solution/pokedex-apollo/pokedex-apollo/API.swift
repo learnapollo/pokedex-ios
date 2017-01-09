@@ -25,20 +25,20 @@ public final class CreatePokemonMutation: GraphQLMutation {
     return ["name": name, "url": url, "trainerId": trainerId]
   }
 
-  public struct Data: GraphQLMapDecodable {
+  public struct Data: GraphQLMappable {
     public let createPokemon: CreatePokemon?
 
-    public init(map: GraphQLMap) throws {
-      createPokemon = try map.optionalValue(forKey: "createPokemon")
+    public init(reader: GraphQLResultReader) throws {
+      createPokemon = try reader.optionalValue(for: Field(responseName: "createPokemon"))
     }
 
-    public struct CreatePokemon: GraphQLMapDecodable {
+    public struct CreatePokemon: GraphQLMappable {
       public let __typename = "Pokemon"
 
       public let fragments: Fragments
 
-      public init(map: GraphQLMap) throws {
-        let pokemonDetails = try PokemonDetails(map: map)
+      public init(reader: GraphQLResultReader) throws {
+        let pokemonDetails = try PokemonDetails(reader: reader)
         fragments = Fragments(pokemonDetails: pokemonDetails)
       }
 
@@ -72,32 +72,32 @@ public final class TrainerQuery: GraphQLQuery {
     return ["name": name]
   }
 
-  public struct Data: GraphQLMapDecodable {
+  public struct Data: GraphQLMappable {
     public let trainer: Trainer?
 
-    public init(map: GraphQLMap) throws {
-      trainer = try map.optionalValue(forKey: "Trainer")
+    public init(reader: GraphQLResultReader) throws {
+      trainer = try reader.optionalValue(for: Field(responseName: "Trainer"))
     }
 
-    public struct Trainer: GraphQLMapDecodable {
+    public struct Trainer: GraphQLMappable {
       public let __typename = "Trainer"
       public let id: GraphQLID
       public let name: String?
-      public let ownedPokemons: [OwnedPokemon]?
+      public let ownedPokemons: [OwnedPokemon]
 
-      public init(map: GraphQLMap) throws {
-        id = try map.value(forKey: "id")
-        name = try map.optionalValue(forKey: "name")
-        ownedPokemons = try map.list(forKey: "ownedPokemons")
+      public init(reader: GraphQLResultReader) throws {
+        id = try reader.value(for: Field(responseName: "id"))
+        name = try reader.optionalValue(for: Field(responseName: "name"))
+        ownedPokemons = try reader.list(for: Field(responseName: "ownedPokemons"))
       }
 
-      public struct OwnedPokemon: GraphQLMapDecodable {
+      public struct OwnedPokemon: GraphQLMappable {
         public let __typename = "Pokemon"
 
         public let fragments: Fragments
 
-        public init(map: GraphQLMap) throws {
-          let pokemonDetails = try PokemonDetails(map: map)
+        public init(reader: GraphQLResultReader) throws {
+          let pokemonDetails = try PokemonDetails(reader: reader)
           fragments = Fragments(pokemonDetails: pokemonDetails)
         }
 
@@ -124,9 +124,9 @@ public struct PokemonDetails: GraphQLNamedFragment {
   public let name: String?
   public let url: String?
 
-  public init(map: GraphQLMap) throws {
-    id = try map.value(forKey: "id")
-    name = try map.optionalValue(forKey: "name")
-    url = try map.optionalValue(forKey: "url")
+  public init(reader: GraphQLResultReader) throws {
+    id = try reader.value(for: Field(responseName: "id"))
+    name = try reader.optionalValue(for: Field(responseName: "name"))
+    url = try reader.optionalValue(for: Field(responseName: "url"))
   }
 }

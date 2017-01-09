@@ -61,7 +61,7 @@ class PokedexTableViewController: UITableViewController {
     func setTrainerData(trainer: TrainerQuery.Data.Trainer) {
         self.trainerId = trainer.id
         self.trainerName = trainer.name
-        self.ownedPokemons = trainer.ownedPokemons?.map { $0.fragments.pokemonDetails }
+        self.ownedPokemons = trainer.ownedPokemons.map { $0.fragments.pokemonDetails }
     }
     
     
