@@ -60,7 +60,7 @@ class PokedexTableViewController: UITableViewController {
         if section == Sections.greeting.rawValue {
             return 1
         }
-        return trainer?.ownedPokemons?.count ?? 0
+        return trainer?.ownedPokemons.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
