@@ -55,7 +55,7 @@ class PokedexTableViewController: UITableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return Sections.count
     }
-    
+        
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == Sections.greeting.rawValue {
             return 1
