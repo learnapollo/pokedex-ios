@@ -40,12 +40,18 @@ class PokedexTableViewController: UITableViewController {
         fetchTrainer()
     }
     
+    deinit {
+        watcher?.cancel()
+    }
+    
     
     // MARK: Data fetching
     
+    var watcher: GraphQLQueryWatcher<TrainerQuery>?
+    
     func fetchTrainer() {
-        let trainerQuery = TrainerQuery(name: "__NAME__")
-        apollo.fetch(query: trainerQuery) { [unowned self] (result: GraphQLResult?, error: Error?) in
+        let trainerQuery = TrainerQuery(name: "Nikolas")
+        watcher = apollo.watch(query: trainerQuery) { [unowned self] (result: GraphQLResult?, error: Error?) in
             if let error = error {
                 print(#function, "ERROR | An error occured: \(error)")
                 return
@@ -61,7 +67,7 @@ class PokedexTableViewController: UITableViewController {
     func setTrainerData(trainer: TrainerQuery.Data.Trainer) {
         self.trainerId = trainer.id
         self.trainerName = trainer.name
-        self.ownedPokemons = trainer.ownedPokemons.map { $0.fragments.pokemonDetails }
+        self.ownedPokemons = trainer.ownedPokemons?.map { $0.fragments.pokemonDetails }
     }
     
     
@@ -111,7 +117,6 @@ class PokedexTableViewController: UITableViewController {
         if segue.identifier == "CreateNewPokemonSegue" {
             let createPokemonViewController = segue.destination as! CreatePokemonViewController
             createPokemonViewController.trainerId = trainerId
-            createPokemonViewController.addedNewPokemon = { [unowned self] in self.ownedPokemons?.append($0) }
         }
         else if segue.identifier == "ShowPokemonDetailsSegue" {
             let pokemonDetailViewController = segue.destination as! PokemonDetailViewController

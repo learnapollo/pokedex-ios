@@ -9,7 +9,7 @@
 import UIKit
 import Apollo
 
-let graphlQLEndpointURL = "https://api.graph.cool/simple/v1/__PROJECT_ID__"
+let graphlQLEndpointURL = "https://api.graph.cool/simple/v1/ciwj0dtj30f6e0122nlykc9vp"
 let apollo = ApolloClient(url: URL(string: graphlQLEndpointURL)!)
 
 @UIApplicationMain

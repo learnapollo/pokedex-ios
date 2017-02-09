@@ -1,6 +1,12 @@
 mutation CreatePokemon($name: String!, $url: String!, $trainerId: ID) {
     createPokemon(name: $name, url: $url, trainerId: $trainerId) {
         ... PokemonDetails
+        trainer {
+            id
+            ownedPokemons {
+                id
+            }
+        }
     }
 }
 
