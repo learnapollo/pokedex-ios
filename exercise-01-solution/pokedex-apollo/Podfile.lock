@@ -1,15 +1,15 @@
 PODS:
-  - Alamofire (4.2.0)
-  - Apollo (0.4.2)
+  - Alamofire (4.3.0)
+  - Apollo (0.5.4)
 
 DEPENDENCIES:
   - Alamofire
   - Apollo
 
 SPEC CHECKSUMS:
-  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
-  Apollo: 0d47a856b21404eb63bddb6446b05416b4b6bb16
+  Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  Apollo: 8c705aeffcc23f5483e10e2b70d87760d83a9fe0
 
 PODFILE CHECKSUM: 1c9156351895765a91504f7ffbe9667739d3a2b5
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0
