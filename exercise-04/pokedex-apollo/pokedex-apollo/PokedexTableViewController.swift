@@ -108,10 +108,6 @@ class PokedexTableViewController: UITableViewController {
     // MARK: Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "CreateNewPokemonSegue" {
-            let createPokemonViewController = segue.destination as! CreatePokemonViewController
-            createPokemonViewController.trainerId = trainerId
-        }
         
     }
     

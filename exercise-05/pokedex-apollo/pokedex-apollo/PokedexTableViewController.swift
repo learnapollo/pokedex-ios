@@ -26,7 +26,7 @@ class PokedexTableViewController: UITableViewController {
         }
     }
     
-    var ownedPokemons: [TrainerQuery.Data.Trainer.OwnedPokemon]? = [] {
+    var ownedPokemons: [PokemonDetails]? = [] {
         didSet {
             tableView.reloadData()
         }
@@ -44,7 +44,7 @@ class PokedexTableViewController: UITableViewController {
     // MARK: Data fetching
     
     func fetchTrainer() {
-        let trainerQuery = TrainerQuery(name: "__NAME__")
+        let trainerQuery = TrainerQuery(name: "Nikolas")
         apollo.fetch(query: trainerQuery) { [unowned self] (result: GraphQLResult?, error: Error?) in
             if let error = error {
                 print(#function, "ERROR | An error occured: \(error)")
@@ -61,7 +61,7 @@ class PokedexTableViewController: UITableViewController {
     func setTrainerData(trainer: TrainerQuery.Data.Trainer) {
         self.trainerId = trainer.id
         self.trainerName = trainer.name
-        self.ownedPokemons = trainer.ownedPokemons
+        self.ownedPokemons = trainer.ownedPokemons?.map { $0.fragments.pokemonDetails }
     }
     
     
@@ -108,11 +108,16 @@ class PokedexTableViewController: UITableViewController {
     // MARK: Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "CreateNewPokemonSegue" {
+        if segue.identifier == "ShowPokemonDetailsSegue" {
+            let pokemonDetailViewController = segue.destination as! PokemonDetailViewController
+            let selectedRow = tableView.indexPathForSelectedRow!.row
+            pokemonDetailViewController.pokemonDetails = ownedPokemons?[selectedRow]
+        }
+        else if segue.identifier == "CreateNewPokemonSegue" {
             let createPokemonViewController = segue.destination as! CreatePokemonViewController
             createPokemonViewController.trainerId = trainerId
         }
     }
-
+    
     
 }

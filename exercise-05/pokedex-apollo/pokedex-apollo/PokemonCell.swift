@@ -18,7 +18,7 @@ class PokemonCell: UITableViewCell {
     // we need this to cancel an ongoing request for an image before the cell is reused
     var request: DataRequest?
     
-    var ownedPokemon: TrainerQuery.Data.Trainer.OwnedPokemon? {
+    var ownedPokemon: PokemonDetails? {
         didSet {
             updateUI()
         }
@@ -35,7 +35,7 @@ class PokemonCell: UITableViewCell {
             nameLabel.text = name
         }
         if let pokemonURL = ownedPokemon?.url {
-            request = Alamofire.request(pokemonURL).responseImage { [unowned self] response in
+            request = Alamofire.request(pokemonURL).responseImage { response in
                 if let image = response.result.value {
                     self.pokemonImageView.image = image
                 }

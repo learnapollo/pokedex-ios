@@ -13,3 +13,4 @@ fragment PokemonDetails on Pokemon {
     name
     url
 }
+    

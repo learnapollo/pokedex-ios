@@ -1,8 +1,11 @@
-mutation CreatePokemon($name: String!, $url: String!, $trainerId: ID) {
+mutation CreatePokemon($name: String, $url: String!, $trainerId: ID) {
     createPokemon(name: $name, url: $url, trainerId: $trainerId) {
-        id
-        name
-        url
+        ...PokemonDetails
+        trainer {
+            id
+            ownedPokemons {
+                id
+            }
+        }
     }
 }
-

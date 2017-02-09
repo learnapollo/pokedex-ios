@@ -4,7 +4,7 @@ import Apollo
 
 public final class CreatePokemonMutation: GraphQLMutation {
   public static let operationDefinition =
-    "mutation CreatePokemon($name: String!, $url: String!, $trainerId: ID) {" +
+    "mutation CreatePokemon($name: String, $url: String!, $trainerId: ID) {" +
     "  createPokemon(name: $name, url: $url, trainerId: $trainerId) {" +
     "    __typename" +
     "    ...PokemonDetails" +
@@ -20,11 +20,11 @@ public final class CreatePokemonMutation: GraphQLMutation {
     "}"
   public static let queryDocument = operationDefinition.appending(PokemonDetails.fragmentDefinition)
 
-  public let name: String
+  public let name: String?
   public let url: String
   public let trainerId: GraphQLID?
 
-  public init(name: String, url: String, trainerId: GraphQLID? = nil) {
+  public init(name: String? = nil, url: String, trainerId: GraphQLID? = nil) {
     self.name = name
     self.url = url
     self.trainerId = trainerId

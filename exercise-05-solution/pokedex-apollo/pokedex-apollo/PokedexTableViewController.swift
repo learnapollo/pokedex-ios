@@ -18,6 +18,8 @@ class PokedexTableViewController: UITableViewController {
         static let count = 2
     }
     
+    var trainerQueryWatcher: GraphQLQueryWatcher<TrainerQuery>?
+    
     var trainerId: GraphQLID?
     
     var trainerName: String? {
@@ -40,18 +42,12 @@ class PokedexTableViewController: UITableViewController {
         fetchTrainer()
     }
     
-    deinit {
-        watcher?.cancel()
-    }
-    
     
     // MARK: Data fetching
     
-    var watcher: GraphQLQueryWatcher<TrainerQuery>?
-    
     func fetchTrainer() {
-        let trainerQuery = TrainerQuery(name: "Nikolas")
-        watcher = apollo.watch(query: trainerQuery) { [unowned self] (result: GraphQLResult?, error: Error?) in
+        let trainerQuery = TrainerQuery(name: "__NAME__")
+        trainerQueryWatcher = apollo.watch(query: trainerQuery) { [unowned self] (result: GraphQLResult?, error: Error?) in
             if let error = error {
                 print(#function, "ERROR | An error occured: \(error)")
                 return
@@ -114,16 +110,16 @@ class PokedexTableViewController: UITableViewController {
     // MARK: Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "CreateNewPokemonSegue" {
-            let createPokemonViewController = segue.destination as! CreatePokemonViewController
-            createPokemonViewController.trainerId = trainerId
-        }
-        else if segue.identifier == "ShowPokemonDetailsSegue" {
+        if segue.identifier == "ShowPokemonDetailsSegue" {
             let pokemonDetailViewController = segue.destination as! PokemonDetailViewController
             let selectedRow = tableView.indexPathForSelectedRow!.row
             pokemonDetailViewController.pokemonDetails = ownedPokemons?[selectedRow]
         }
+        else if segue.identifier == "CreateNewPokemonSegue" {
+            let createPokemonViewController = segue.destination as! CreatePokemonViewController
+            createPokemonViewController.trainerId = trainerId
+        }
     }
-
+    
     
 }

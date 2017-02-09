@@ -3,7 +3,7 @@ query Trainer($name: String!) {
         id
         name
         ownedPokemons {
-            ... PokemonDetails
+            ...PokemonDetails
         }
     }
 }
@@ -13,3 +13,4 @@ fragment PokemonDetails on Pokemon {
     name
     url
 }
+    

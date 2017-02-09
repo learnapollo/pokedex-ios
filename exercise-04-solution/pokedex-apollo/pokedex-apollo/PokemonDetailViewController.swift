@@ -29,13 +29,15 @@ class PokemonDetailViewController: UIViewController {
         }
     }
     
+    
+    // MARK: View Controller Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Details"
         updateUI()
     }
 
-    
     
     // MARK: Util
     
