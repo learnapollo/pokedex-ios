@@ -1,0 +1,16 @@
+query Trainer($name: String!) {
+    Trainer(name: $name) {
+        id
+        name
+        ownedPokemons {
+            ...PokemonDetails
+        }
+    }
+}
+
+fragment PokemonDetails on Pokemon {
+    id
+    name
+    url
+}
+    
