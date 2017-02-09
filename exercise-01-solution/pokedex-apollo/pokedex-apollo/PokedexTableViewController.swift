@@ -10,6 +10,8 @@ import UIKit
 
 class PokedexTableViewController: UITableViewController {
     
+    // MARK: View controller lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Pokedex"

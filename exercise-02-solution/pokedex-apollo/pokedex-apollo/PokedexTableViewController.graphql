@@ -1,5 +1,5 @@
 query Trainer {
-    Trainer(name: "Nikolas") {
+    Trainer(name: "__NAME__") {
         id
         name
     }

@@ -10,14 +10,7 @@ import UIKit
 
 class PokedexTableViewController: UITableViewController {
     
-    enum Sections: Int {
-        case greeting
-        case pokemons
-        
-        static let count = 2
-    }
-    
-    // MARK: View controller life cycle
+    // MARK: View controller lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +20,11 @@ class PokedexTableViewController: UITableViewController {
     // MARK: Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return Sections.count
+        return 2
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == Sections.greeting.rawValue {
+        if section == 0 {
             return 1
         }
         return 0

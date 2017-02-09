@@ -24,7 +24,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="69"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8Mc-9a-BVH" id="emv-rR-wov">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, you have 0 Pokemon in your Pokedex!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5D9-9C-0yl">
@@ -48,7 +48,7 @@
                                 <rect key="frame" x="0.0" y="97" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9v1-vs-J3x" id="CPl-31-b18">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eAB-iT-w5b">
@@ -85,9 +85,7 @@
                             <outlet property="delegate" destination="MXm-Rc-bS0" id="rZ8-bq-Wwx"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Pokedex" id="v3B-5k-6ks">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="GIz-Bk-rmR"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Pokedex" id="v3B-5k-6ks"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DuR-5f-XN8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -122,7 +120,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tRt-nf-cbD">
-                                <rect key="frame" x="68" y="32" width="240" height="240"/>
+                                <rect key="frame" x="68" y="76" width="240" height="240"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="tRt-nf-cbD" secondAttribute="height" multiplier="1:1" id="9iy-ZV-Thl"/>
@@ -130,38 +128,38 @@
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aWq-hc-LEx">
-                                <rect key="frame" x="68" y="312" width="240" height="30"/>
+                                <rect key="frame" x="68" y="356" width="240" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EsE-ic-JNI">
-                                <rect key="frame" x="68" y="283" width="45" height="21"/>
+                                <rect key="frame" x="68" y="327" width="45" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l9R-Nm-2Gd">
-                                <rect key="frame" x="68" y="379" width="240" height="30"/>
+                                <rect key="frame" x="68" y="423" width="240" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image URL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k9Y-g9-w1N">
-                                <rect key="frame" x="68" y="350" width="84" height="21"/>
+                                <rect key="frame" x="68" y="394" width="84" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0he-1P-hQj">
-                                <rect key="frame" x="173" y="417" width="30" height="30"/>
+                                <rect key="frame" x="173" y="461" width="30" height="30"/>
                                 <state key="normal" title="Edit"/>
                                 <connections>
                                     <action selector="editAndSaveButtonPressed" destination="vsp-71-D6b" eventType="touchUpInside" id="ux5-C9-VCF"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrd-0N-Qj8">
-                                <rect key="frame" x="166" y="449" width="45" height="30"/>
+                                <rect key="frame" x="166" y="493" width="45" height="30"/>
                                 <state key="normal" title="Delete">
                                     <color key="titleColor" red="0.87058824300000004" green="0.062745101750000004" blue="0.12549020350000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -170,10 +168,10 @@
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Pfv-dv-HJD">
-                                <rect key="frame" x="211" y="422" width="20" height="20"/>
+                                <rect key="frame" x="211" y="466" width="20" height="20"/>
                             </activityIndicatorView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="DIb-rn-qwG">
-                                <rect key="frame" x="219" y="454" width="20" height="20"/>
+                                <rect key="frame" x="219" y="498" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

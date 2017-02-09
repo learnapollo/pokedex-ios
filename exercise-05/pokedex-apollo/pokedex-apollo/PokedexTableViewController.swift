@@ -10,19 +10,12 @@ import UIKit
 import Apollo
 
 class PokedexTableViewController: UITableViewController {
-    
-    enum Sections: Int {
-        case greeting
-        case pokemons
-        
-        static let count = 2
-    }
-    
+
     var trainerId: GraphQLID?
     
     var trainerName: String? {
         didSet {
-            tableView.reloadSections([Sections.greeting.rawValue], with: .none)
+            tableView.reloadSections([0], with: .none)
         }
     }
     
@@ -33,7 +26,7 @@ class PokedexTableViewController: UITableViewController {
     }
     
     
-    // MARK: View controller life cycle
+    // MARK: View controller lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,8 +37,8 @@ class PokedexTableViewController: UITableViewController {
     // MARK: Data fetching
     
     func fetchTrainer() {
-        let trainerQuery = TrainerQuery(name: "Nikolas")
-        apollo.fetch(query: trainerQuery) { [unowned self] (result: GraphQLResult?, error: Error?) in
+        let trainerQuery = TrainerQuery(name: "__NAME__")
+        apollo.fetch(query: trainerQuery) { (result: GraphQLResult?, error: Error?) in
             if let error = error {
                 print(#function, "ERROR | An error occured: \(error)")
                 return
@@ -68,11 +61,11 @@ class PokedexTableViewController: UITableViewController {
     // MARK: Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return Sections.count
+        return 2
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == Sections.greeting.rawValue {
+        if section == 0 {
             return 1
         }
         return ownedPokemons?.count ?? 0
@@ -80,7 +73,7 @@ class PokedexTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
-        case Sections.greeting.rawValue:
+        case 0:
             let greetingString: String
             if let name = trainerName,
                let ownedPokemons = ownedPokemons {
@@ -92,7 +85,7 @@ class PokedexTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "GreetingCell", for: indexPath) as! GreetingCell
             cell.greetingLabel.text = greetingString
             return cell
-        case Sections.pokemons.rawValue:
+        case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "PokemonCell", for: indexPath) as! PokemonCell
             if let ownedPokemons = ownedPokemons {
                 cell.ownedPokemon = ownedPokemons[indexPath.row]

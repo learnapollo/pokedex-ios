@@ -10,21 +10,14 @@ import UIKit
 import Apollo
 
 class PokedexTableViewController: UITableViewController {
-    
-    enum Sections: Int {
-        case greeting
-        case pokemons
-        
-        static let count = 2
-    }
-    
+
     var trainer: TrainerQuery.Data.Trainer? {
         didSet {
             tableView.reloadData()
         }
     }
     
-    // MARK: View controller life cycle
+    // MARK: View controller lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,11 +47,11 @@ class PokedexTableViewController: UITableViewController {
     // MARK: Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return Sections.count
+        return 2
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == Sections.greeting.rawValue {
+        if section == 0 {
             return 1
         }
         return 0
@@ -66,7 +59,7 @@ class PokedexTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
-        case Sections.greeting.rawValue:
+        case 0:
             let greetingString: String
             if let name = trainer?.name {
                 greetingString = "Hello \(name), you have 0 Pokemons in your Pokedex."
@@ -77,7 +70,7 @@ class PokedexTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "GreetingCell", for: indexPath) as! GreetingCell
             cell.greetingLabel.text = greetingString
             return cell
-        case Sections.pokemons.rawValue:
+        case 1:
             fatalError("ERROR: Not yet implemented")
         default:
             fatalError("ERROR: Unknown section")

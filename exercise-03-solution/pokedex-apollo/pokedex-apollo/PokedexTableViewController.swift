@@ -10,14 +10,7 @@ import UIKit
 import Apollo
 
 class PokedexTableViewController: UITableViewController {
-    
-    enum Sections: Int {
-        case greeting
-        case pokemons
-        
-        static let count = 2
-    }
-    
+
     var trainer: TrainerQuery.Data.Trainer? {
         didSet {
             tableView.reloadData()
@@ -53,19 +46,19 @@ class PokedexTableViewController: UITableViewController {
     // MARK: Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return Sections.count
+        return 2
     }
         
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == Sections.greeting.rawValue {
+        if section == 0 {
             return 1
         }
-        return trainer?.ownedPokemons.count ?? 0
+        return trainer?.ownedPokemons?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
-        case Sections.greeting.rawValue:
+        case 0:
             let greetingString: String
             if let name = trainer?.name,
                let ownedPokemons = trainer?.ownedPokemons {
@@ -77,7 +70,7 @@ class PokedexTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "GreetingCell", for: indexPath) as! GreetingCell
             cell.greetingLabel.text = greetingString
             return cell
-        case Sections.pokemons.rawValue:
+        case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "PokemonCell", for: indexPath) as! PokemonCell
             if let ownedPokemons = trainer?.ownedPokemons {
                 cell.ownedPokemon = ownedPokemons[indexPath.row]

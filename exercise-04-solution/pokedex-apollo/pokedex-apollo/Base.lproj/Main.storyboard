@@ -24,7 +24,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="69"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8Mc-9a-BVH" id="emv-rR-wov">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, you have 0 Pokemon in your Pokedex!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5D9-9C-0yl">
@@ -48,7 +48,7 @@
                                 <rect key="frame" x="0.0" y="97" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9v1-vs-J3x" id="CPl-31-b18">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eAB-iT-w5b">
@@ -85,9 +85,7 @@
                             <outlet property="delegate" destination="MXm-Rc-bS0" id="rZ8-bq-Wwx"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Pokedex" id="v3B-5k-6ks">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="GIz-Bk-rmR"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Pokedex" id="v3B-5k-6ks"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DuR-5f-XN8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

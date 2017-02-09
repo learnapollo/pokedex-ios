@@ -45,7 +45,7 @@ class PokemonDetailViewController: UIViewController {
         nameTextField.text = pokemonDetails.name
         imageURLTextField.text = pokemonDetails.url
         if let pokemonURL = pokemonDetails.url {
-            Alamofire.request(pokemonURL).responseImage { [unowned self] response in
+            Alamofire.request(pokemonURL).responseImage { response in
                 if let image = response.result.value {
                     self.pokemonImageView.image = image
                 }
