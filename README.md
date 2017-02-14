@@ -1,6 +1,6 @@
 # pokedex-ios
 
-Pokedex iOS app using and teaching [GraphQL](www.graphql.com) and the [Apollo iOS Client](http://dev.apollodata.com/ios/).
+Pokedex iOS app using and teaching [GraphQL](http://graphql.org) and the [Apollo iOS Client](http://dev.apollodata.com/ios/).
 
 ![](./img/pokedex.gif)
 
